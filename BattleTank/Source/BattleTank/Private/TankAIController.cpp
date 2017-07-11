@@ -18,14 +18,13 @@ void ATankAIController::BeginPlay() {
 
 	auto PlayerPawn = GetPlayerTank();
 	auto AiTank = GetAiTank();
-	
+
 	if (PlayerPawn) {
-			UE_LOG(LogTemp, Warning, TEXT("AI Controller found: %s"), *(PlayerPawn->GetName()))
+		UE_LOG(LogTemp, Warning, TEXT("AI Controller found: %s"), *(PlayerPawn->GetName()))
 	}
 	else {
 		UE_LOG(LogTemp, Warning, TEXT("AI has not found the Player Tank."))
 	}
-	//notice me senpai !!
 }
 
 
