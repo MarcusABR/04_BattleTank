@@ -13,7 +13,9 @@ UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-		ATank* GetControlledTank() const;
+
+private:
+	ATank* GetControlledTank() const;
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
@@ -22,6 +24,13 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 	bool GetSightRayHitLocation( FVector &OutHitLocation) const;
 
 	//Starts the barrel movement so that a shot would hit it where the world intersect the crosshair.
-	void AimTowardsCrosshair();
 
+	void AimTowardsCrosshair();
+	bool GetLookDirection(FVector2D ScreenLocation, FVector &LookDirection) const;
+
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5f;
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.33333f;
 };
