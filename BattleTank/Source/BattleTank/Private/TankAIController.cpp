@@ -27,4 +27,13 @@ void ATankAIController::BeginPlay() {
 	}
 }
 
+void ATankAIController::Tick(float DeltaTime) {
+	Super::Tick(DeltaTime);
+
+	auto PlayerTank = GetPlayerTank();
+	if (PlayerTank != nullptr) {
+		GetAiTank()->AimAt(PlayerTank->GetActorLocation());
+	}
+	
+}
 
