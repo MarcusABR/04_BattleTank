@@ -3,7 +3,7 @@
 #include "BattleTank.h"
 #include "TankAIController.h"
 
-ATank * ATankAIController::GetAiTank() const {
+ATank * ATankAIController::GetControlledTank() const {
 	return Cast<ATank>(GetPawn());
 }
 
@@ -17,7 +17,7 @@ void ATankAIController::BeginPlay() {
 	Super::BeginPlay();
 
 	auto PlayerPawn = GetPlayerTank();
-	auto AiTank = GetAiTank();
+	auto AiTank = GetControlledTank();
 
 	if (PlayerPawn) {
 		UE_LOG(LogTemp, Warning, TEXT("AI Controller found: %s"), *(PlayerPawn->GetName()))
@@ -32,7 +32,7 @@ void ATankAIController::Tick(float DeltaTime) {
 
 	auto PlayerTank = GetPlayerTank();
 	if (PlayerTank != nullptr) {
-		GetAiTank()->AimAt(PlayerTank->GetActorLocation());
+		GetControlledTank()->FindComponentByClass<UTankAimingComponent>()->AimAt(GetPlayerTank()->GetActorLocation());
 	}
 	
 }
