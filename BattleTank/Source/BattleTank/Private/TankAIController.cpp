@@ -32,7 +32,7 @@ void ATankAIController::Tick(float DeltaTime) {
 
 	auto PlayerTank = GetPlayerTank();
 	if (PlayerTank != nullptr) {
-		GetControlledTank()->FindComponentByClass<UTankAimingComponent>()->AimAt(GetPlayerTank()->GetActorLocation());
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
 	}
 	
 }
