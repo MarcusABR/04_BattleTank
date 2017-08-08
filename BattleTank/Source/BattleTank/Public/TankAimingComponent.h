@@ -4,6 +4,7 @@
 
 #include "Components/ActorComponent.h"
 #include "TankAimingComponent.generated.h"
+
 //Foward Declaration.
 class UTankBarrel; 
 //Hold barrel's properties and Elevate method.
